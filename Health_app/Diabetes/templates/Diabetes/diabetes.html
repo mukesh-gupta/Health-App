@@ -1,0 +1,176 @@
+<!doctype html>
+{% extends 'base.html' %}
+{% load static %}
+<head>
+ <title>{% block title %} Diabetes Prediction{% endblock %}</title>
+
+   {% block style %}
+input[name='Pregnancies']{
+    width:100%;
+    height:40px;
+    padding:12px,20px;
+    margin 8px 0;
+    display:inline-block;
+    border:1px solid lightgray;
+    border-radius:4px;
+    box-sizing:border-box;
+    box-shadow:2px 4px 4px 2px lightgray;
+
+
+    }
+
+  input[name='Glucose_Level']{
+    width:100%;
+    height:40px;
+    padding:12px,20px;
+    margin 8px 0;
+    display:inline-block;
+    border:1px solid lightgray;
+    border-radius:4px;
+    box-sizing:border-box;
+    box-shadow:2px 4px 4px 2px lightgray;
+
+
+    }
+
+
+    input[name='Current_Blood_Pressure']{
+        width:100%;
+    height:40px;
+    padding:12px,20px;
+    margin 8px 0;
+    display:inline-block;
+    border:1px solid lightgray;
+    border-radius:4px;
+    box-sizing:border-box;
+    box-shadow:2px 4px 4px 2px lightgray;
+    }
+
+
+    input[name='Enter_the_Body_Mass_Index']{
+    width:100%;
+    height:40px;
+    padding:12px,20px;
+    margin 8px 0;
+    display:inline-block;
+    border:1px solid lightgray;
+    border-radius:4px;
+    box-sizing:border-box;
+    box-shadow:2px 4px 4px 2px lightgray;
+
+
+    }
+input[name='Diabetes_Pedigree_Function']{
+    width:100%;
+    height:40px;
+    padding:12px,20px;
+    margin 8px 0;
+    display:inline-block;
+    border:1px solid lightgray;
+    border-radius:4px;
+    box-sizing:border-box;
+    box-shadow:2px 4px 4px 2px lightgray;
+
+
+    }
+
+
+      input[name='Age']{
+    width:100%;
+    height:40px;
+    padding:12px,20px;
+    margin 8px 0;
+    display:inline-block;
+    border:1px solid lightgray;
+    border-radius:4px;
+    box-sizing:border-box;
+    box-shadow:2px 4px 4px 2px lightgray;
+
+
+    }
+
+{% endblock %}
+
+  </head>
+  <body>
+ {% block content %}
+
+      <!--Mask-->
+      <div id="intro" class="container-fluid view ">
+        <h1 class="text-center text-capitalize pt-5">Know your chances of getting diabetes in one Click!</h1>
+        <hr class="w-75 mx-auto pt-5">
+        <div class="row mb-5">
+          <div class="col-lg-6 col-md-6 col-12 my-auto">
+            <img src="{% static 'Diabetes/images/diabetes.jpg' %}" class="float-left">
+
+          </div>
+
+
+                     <div class="col-lg-6 col-md-6 col-12">
+            <form action="{% url 'diabresult' %}" method="POST">
+              {% csrf_token %}
+
+ {% for form in forms %}
+                <div class="form-group">
+                    <h5>{{form.label_tag}}<br>{{form}}</h5>
+
+
+                     </div>
+                  {% endfor %}
+
+<br>
+              <button type="submit" class="btn btn-danger">Predict</button>
+              </form>
+ </div>
+
+
+
+
+
+
+
+
+
+
+
+<!--          <div class="col-lg-6 col-md-6 col-12">-->
+<!--            <form action="{% url 'diabresult' %}" method="post">-->
+<!--              {% csrf_token %}-->
+<!--              <div class="form-group">-->
+<!--                &lt;!&ndash; TODO : Year to accept only year date picker &ndash;&gt;-->
+<!--                <label for="Pregnancies">No. of Pregnencies</label>-->
+<!--                <input class="form-control" type="number" id="Pregnancies" name="Pregnancies" required="required" placeholder="No. of Pregnencies">-->
+<!--              </div>-->
+<!--              <div class="form-group">-->
+<!--                <label for="Glucose">Glucose Level</label>-->
+<!--                <input class="form-control" type="number" step="any" id="Glucose" name="Glucose" required="required" placeholder="Glucose Level">-->
+<!--              </div>-->
+<!--              <div class="form-group">-->
+<!--                <label for="BloodPressure">Current Blood Pressure</label>-->
+<!--                <input class="form-control" type="number" id="BloodPressure" name="BloodPressure" required="required" placeholder="Current Blood Pressure">-->
+<!--              </div>-->
+<!--              <div class="form-group">-->
+<!--                <label for="BMI">Enter the Body Mass Index</label>-->
+<!--                <input class="form-control" type="number" id="BMI" name="BMI" required="required" placeholder="Body Mass Index">-->
+<!--              </div>-->
+<!--              <div class="form-group">-->
+<!--                <label for="DiabetesPedigreeFunction">Diabetes Pedigree Function</label>-->
+<!--                <input class="form-control" type="number" id="DiabetesPedigreeFunction" name="DiabetesPedigreeFunction" required="required" placeholder="Diabetes Pedigree Function">-->
+<!--              </div>-->
+<!--              <div class="form-group">-->
+<!--                <label for="Age">Age</label>-->
+<!--                <input class="form-control" type="number" id="Age" name="Age" required="required" placeholder="Age">-->
+<!--              </div>-->
+<!--              -->
+<!--              -->
+<!--              -->
+<!--              <button type="submit" class="btn btn-danger">Predict</button>-->
+<!--            </form>-->
+<!--          </div>-->
+
+        </div>
+      </div>
+      <!--/.Mask-->
+{% endblock %}
+    </body>
+</html>

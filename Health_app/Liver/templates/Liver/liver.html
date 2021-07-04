@@ -1,0 +1,189 @@
+
+<!doctype html>
+{% extends 'base.html' %}
+{% load static %}
+<head>
+    <title>{% block title %}Liver Disease Prediction{% endblock %}</title>
+
+  {% block style %}
+    input[name='Total_Bilirubin']{
+    width:100%;
+    height:40px;
+    padding:12px,20px;
+    margin 8px 0;
+    display:inline-block;
+    border:2px solid brown;
+    border-radius:4px;
+    box-sizing:border-box;
+    box-shadow:2px 4px 4px 2px brown;
+
+
+    }
+
+  input[name='Direct_Bilirubin']{
+    width:100%;
+    height:40px;
+    padding:12px,20px;
+    margin 8px 0;
+    display:inline-block;
+    border:1px solid brown;
+    border-radius:4px;
+    box-sizing:border-box;
+    box-shadow:2px 4px 4px 2px brown;
+
+
+    }
+
+
+    input[name='Alkaline_Phosphotase']{
+        width:100%;
+    height:40px;
+    padding:12px,20px;
+    margin 8px 0;
+    display:inline-block;
+    border:1px solid brown;
+    border-radius:4px;
+    box-sizing:border-box;
+    box-shadow:2px 4px 4px 2px brown;
+    }
+
+
+    input[name='Alamine_Aminotransferase']{
+    width:100%;
+    height:40px;
+    padding:12px,20px;
+    margin 8px 0;
+    display:inline-block;
+    border:1px solid brown;
+    border-radius:4px;
+    box-sizing:border-box;
+    box-shadow:2px 4px 4px 2px brown;
+
+
+    }
+
+    input[name='Total_Protiens']{
+    width:100%;
+    height:40px;
+    padding:12px,20px;
+    margin 8px 0;
+    display:inline-block;
+    border:1px solid brown;
+    border-radius:4px;
+    box-sizing:border-box;
+    box-shadow:2px 4px 4px 2px brown;
+
+
+    }
+
+      input[name='Albumin']{
+    width:100%;
+    height:40px;
+    padding:12px,20px;
+    margin 8px 0;
+    display:inline-block;
+    border:1px solid brown;
+    border-radius:4px;
+    box-sizing:border-box;
+    box-shadow:2px 4px 4px 2px brown;
+
+
+    }
+
+        input[name='Albumin_and_Globulin_Ratio']{
+    width:100%;
+    height:40px;
+    padding:12px,20px;
+    margin 8px 0;
+    display:inline-block;
+    border:1px solid brown;
+    border-radius:4px;
+    box-sizing:border-box;
+    box-shadow:2px 4px 4px 2px brown;
+
+
+    }
+
+{% endblock %}
+
+
+  </head>
+  <body>
+   {% block content %}
+      <!--Mask-->
+      <div id="intro" class="container-fluid view ">
+        <h1 class="text-center text-capitalize pt-5">Know your chances of getting a liver disease in one Click!</h1>
+        <hr class="w-75 mx-auto pt-5">
+        <div class="row mb-5">
+          <div class="col-lg-6 col-md-6 col-12 my-auto">
+            <img src="{% static 'Liver/images/liver.jpg' %}" class="float-left">
+            
+          </div>
+
+
+
+                     <div class="col-lg-6 col-md-6 col-12">
+            <form action="{% url 'liverresult' %}" method="POST">
+              {% csrf_token %}
+
+ {% for form in forms %}
+                <div class="form-group">
+                    <h5>{{form.label_tag}}<br>{{form}}</h5>
+
+
+                     </div>
+                  {% endfor %}
+
+<br>
+              <button type="submit" class="btn btn-danger">Predict</button>
+              </form>
+ </div>
+
+
+
+
+
+
+<!--          <div class="col-lg-6 col-md-6 col-12">-->
+<!--            <form action="{% url 'liverresult' %}" method="post">-->
+<!--              {% csrf_token %}-->
+<!--              <div class="form-group">-->
+<!--                &lt;!&ndash; TODO : Year to accept only year date picker &ndash;&gt;-->
+<!--                <label for="Total Bilirubin">Total Bilirubin</label>-->
+<!--                <input class="form-control" type="number" id="Total Bilirubin" name="Total_Bilirubin" required="required" placeholder="Enter the Total Bilirubin">-->
+<!--              </div>-->
+<!--              <div class="form-group">-->
+<!--                <label for="Direct_Bilirubin">Direct Bilirubin</label>-->
+<!--                <input class="form-control" type="number" step="any" id="Direct_Bilirubin" name="Direct_Bilirubin" required="required" placeholder="Enter the Direct_Bilirubin">-->
+<!--              </div>-->
+<!--              <div class="form-group">-->
+<!--                <label for="Alkaline_Phosphotase">Alkaline Phosphotase</label>-->
+<!--                <input class="form-control" type="number" id="Alkaline_Phosphotase" name="Alkaline_Phosphotase" required="required" placeholder="Enter the Alkaline Phosphotase">-->
+<!--              </div>-->
+<!--              <div class="form-group">-->
+<!--                <label for="Alamine_Aminotransferase">Alamine Aminotransferase</label>-->
+<!--                <input class="form-control" type="number" id="Alamine_Aminotransferase" name="Alamine_Aminotransferase" required="required" placeholder="Enter the Alamine Aminotransferase">-->
+<!--              </div>-->
+<!--              <div class="form-group">-->
+<!--                <label for="Total_Protiens">Total Protiens</label>-->
+<!--                <input class="form-control" type="number" id="Total_Protiens" name="Total_Protiens" required="required" placeholder="Enter the Total Protiens">-->
+<!--              </div>-->
+<!--              <div class="form-group">-->
+<!--                <label for="Albumin">Albumin</label>-->
+<!--                <input class="form-control" type="number" id="Albumin" name="Albumin" required="required" placeholder="Enter the Albumin">-->
+<!--              </div>-->
+<!--              <div class="form-group">-->
+<!--                <label for="Albumin_and_Globulin_Ratio">Albumin and Globulin Ratio</label>-->
+<!--                <input class="form-control" type="number" id="Albumin_and_Globulin_Ratio" name="Albumin_and_Globulin_Ratio" required="required" placeholder="Enter the Albumin and Globulin Ratio">-->
+<!--              </div>           -->
+<!--              <button type="submit" class="btn btn-danger">Predict</button>-->
+<!--            </form>-->
+<!--          </div>-->
+
+
+        </div>
+      </div>
+      <!--/.Mask-->
+   {% endblock %}
+  </body>
+</html>

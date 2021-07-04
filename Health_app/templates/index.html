@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'base.html' %}
+{% load static %}
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Bootstrap 4 Carousel</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<style>
+.carousel{
+    background: #2f4357;
+    margin-top: 20px;
+
+}
+.carousel-item{
+    text-align: center;
+    min-height: 280px; /* Prevent carousel from being distorted if for some reason image doesn't load */
+
+}
+
+</style>
+
+
+
+</head>
+<body>
+
+  {% block content %}
+
+<section style="margin-top:20px;">
+<div class="container-fluid">
+    <div id="myCarousel" class="carousel slide" data-interval="3000" data-ride="carousel">
+        <!-- Carousel indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+        <!-- Wrapper for carousel items -->
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="{% static 'images/image9.jpeg' %}" alt="First Slide" style="width:100%;height:400px;">
+                <div class="carousel-caption d-none d-md-block">
+                    <h3 style="color:black">Experience the power of AI in HealthCare</h3>
+                    <p style="color:black;font-size:20px;">Application of AI in the healthcare can have a major impact on the daily working routine of the Doctors.
+						It can reduce the workload of the doctors immensly.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'images/image8.jpeg' %}" alt="Second Slide" style="width:100%;height:400px;">
+                <div class="carousel-caption d-none d-md-block">
+                    <h3 style="color:black">Making the Big World for Healthcare Smaller</h3>
+			<p style="color:black;font-size:20px;">Still in 2021 many people are not able to get proper healthcare services because of not a wide reach of the doctors and hospitals.
+				Using AI people can have a personal doctor at home.</p>
+
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'images/health32.jpg' %}" alt="Third Slide" style="width:100%;height:400px;">
+                <div class="carousel-caption d-none d-md-block">
+                    <h3>AI is the new electricity</h3>
+					<p style="font-size:20px;">AI is powering personal devices in our homes and offices similarly to electricity. AI will be the next big thing after the electricity that will hugely impact our daily life</p>
+
+                </div>
+            </div>
+        </div>
+        <!-- Carousel controls -->
+        <a class="carousel-control-prev" href="#myCarousel" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#myCarousel" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </a>
+    </div>
+</div>
+</section>
+
+   	<hr class="featurette-divider" style="margin-top:40px;">
+
+  <section style="margin-top:40px;">
+	  <div class="container">
+  <div class="row">
+					<div class="col-lg-4">
+						<img class="rounded-circle" src="{% static 'images/health13.jpg' %}" alt="CLock Image" >
+						<h2 style="margin-top:45px;text-align:center">Quick Prediction</h2>
+						<p style="margin-top:25px;text-align:center">We have used light ML model that can load within no time without compromising on the accuracy of the prediction. Light models quickly load which helps in better response of the page.</p>
+
+						</div><!-- /.col-lg-4 -->
+						<div class="col-lg-4">
+							<img class="rounded-circle" src="{% static 'images/health10.jpg' %}" alt="Checklist image" >
+							<h2 style="margin-top:45px;text-align:center">Wide Range</h2>
+							<p style="margin-top:25px;text-align:center">This Web-App provides a wide range of predicting the contamination multiple infectious diseases like Kidney disease, Diabetes, Liver Infection, Heart Disease & Breast Cancer.</p>
+
+							</div><!-- /.col-lg-4 -->
+							<div class="col-lg-4">
+								<img class="rounded-circle" src="{% static 'images/health22.jpg' %}" alt="Accuracy Image" style="border:2px solid lightgray">
+								<h2 style="margin-top:30px;text-align:center">Highly Accurate</h2>
+								<p style="margin-top:25px;text-align:center">Though this app provides a wide range and high speed the accuracy has not been compromised. Hyper-parameters have been selected very carefully so that the accuracy is not hampered.</p>
+
+								</div><!-- /.col-lg-4 -->
+								</div><!-- /.row -->
+	  </div>
+
+  </section>
+
+<hr class="featurette-divider">
+  <section style="margin-top:40px;">
+	    <div class="container">
+								<!-- START THE FEATURETTES -->
+
+								<div class="row featurette">
+									<div class="col-md-7">
+										<h2 class="featurette-heading">Less Doctors<span class="text-muted">: India is facing a huge shortage of Doctors</span></h2>
+										<p class="lead">The shortage of professionals like doctors, nurses, technicians and infrastructure as given by the report of WHO that 0.76 doctors and 2.09 nurses are present per 1000 people. Additionally, Indian healthcare is also facing acute shortage of hospital beds with 1.3 hospital beds per 1000 population.</p>
+									</div>
+									<div class="col-md-5">
+										<img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" src="{% static 'images/health5.jpg' %}" alt="Health Care Professionals">
+									</div>
+								</div>
+		</div>
+  </section>
+
+								<hr class="featurette-divider" style="margin-top:40px;">
+
+   <section style="margin-top:40px;">
+	    <div class="container">
+								<div class="row featurette">
+									<div class="col-md-7 order-md-2">
+										<h2 class="featurette-heading">Low Accessibility<span class="text-muted">: Non-uniform Accessibility to Healthcare across nation</span></h2>
+										<p class="lead">The physical access to hospitals is still the major barrier to both preventive and curative health services, and also the major differences between the Rural and the Urban India. By making use of web technology and AI people in remote areas can also get access to the health-care.</p>
+									</div>
+									<div class="col-md-5 order-md-1">
+										<img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" src="{% static 'images/health3.png' %}" alt="Generic placeholder image">
+									</div>
+								</div>
+		</div>
+  </section>
+								<hr class="featurette-divider">
+
+     <section style="margin-top:40px;">
+	    <div class="container">
+								<div class="row featurette">
+									<div class="col-md-7">
+										<h2 class="featurette-heading">Affordability: <span class="text-muted">Good healthcare facilities still a dream of the common people in India</span></h2>
+										<p class="lead">It is the biggest problem many Poor and marginalised are hit the most as by the government estimates, approx. 63 million people are faced with poverty every year because of their healthcare expenditure. Using the technology in a better way healthcare can be made affordable for everyone</p>
+									</div>
+									<div class="col-md-5">
+										<img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" src="{% static 'images/helth2.jpg' %}"alt="Generic placeholder image">
+									</div>
+								</div>
+		</div>
+	 </section>
+
+  <hr class="featurette-divider">
+								<!-- /END THE FEATURETTES -->
+								</div><!-- /.container -->
+
+  	<footer class="container">
+									<p class="float-right"><a href="#">Back to top</a></p>
+
+								</footer>
+
+
+{% endblock %}
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

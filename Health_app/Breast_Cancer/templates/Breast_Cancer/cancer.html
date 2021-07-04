@@ -1,0 +1,146 @@
+<!doctype html>
+{% extends 'base.html' %}
+{% load static %}
+<head>
+    <title>{% block title %}Breast Cancer Prediction {% endblock %}</title>
+  {% block style %}
+    input[name='Mean_of_the_Concave_Points']{
+    width:100%;
+    height:40px;
+    padding:12px,20px;
+    margin 8px 0;
+    display:inline-block;
+    border:1px solid lightblue;
+    border-radius:4px;
+    box-sizing:border-box;
+    box-shadow:2px 4px 4px 2px lightblue;
+
+
+    }
+
+  input[name='Mean_of_the_Area']{
+    width:100%;
+    height:40px;
+    padding:12px,20px;
+    margin 8px 0;
+    display:inline-block;
+    border:1px solid lightblue;
+    border-radius:4px;
+    box-sizing:border-box;
+    box-shadow:2px 4px 4px 2px lightblue;
+
+
+    }
+
+
+    input[name='Mean_of_the_Radius']{
+        width:100%;
+    height:40px;
+    padding:12px,20px;
+    margin 8px 0;
+    display:inline-block;
+    border:1px solid lightblue;
+    border-radius:4px;
+    box-sizing:border-box;
+    box-shadow:2px 4px 4px 2px lightblue;
+    }
+
+
+    input[name='Mean_of_the_Perimeters']{
+    width:100%;
+    height:40px;
+    padding:12px,20px;
+    margin 8px 0;
+    display:inline-block;
+    border:1px solid lightblue;
+    border-radius:4px;
+    box-sizing:border-box;
+    box-shadow:2px 4px 4px 2px lightblue;
+
+
+    }
+
+    input[name='Mean_of_the_Concavity']{
+    width:100%;
+    height:40px;
+    padding:12px,20px;
+    margin 8px 0;
+    display:inline-block;
+    border:1px solid lightblue;
+    border-radius:4px;
+    box-sizing:border-box;
+    box-shadow:2px 4px 4px 2px lightblue;
+
+
+    }
+{% endblock %}
+  </head>
+  <body>
+ {% block content %}
+      <!--Mask-->
+      <div id="intro" class="container-fluid view ">
+        <h1 class="text-center text-capitalize pt-5">Know your chances of getting Breast Cancer in one Click!</h1>
+        <hr class="w-75 mx-auto pt-5">
+        <div class="row mb-5">
+          <div class="col-lg-6 col-md-6 col-12 my-auto">
+            <img src="{% static 'Breast_Cancer/images/breast.jpg' %}" class="float-left">
+            <h3></h3>
+</div>
+ <div class="col-lg-6 col-md-6 col-12">
+            <form action="{% url 'result' %}" method="POST">
+              {% csrf_token %}
+
+ {% for form in forms %}
+                <div class="form-group">
+ <h5> {{form.label_tag}}<br>  {{form}}<br><br></h5>
+
+
+                     </div>
+                  {% endfor %}
+
+
+              <button type="submit" class="btn btn-danger">Predict</button>
+              </form>
+ </div>
+
+
+<!--          <div class="col-lg-6 col-md-6 col-12">-->
+<!--            <form action="{% url 'result' %}" method="POST">-->
+<!--              {% csrf_token %}-->
+<!--              {% for form in forms %}-->
+<!--              {{form}}-->
+<!--              {% endfor %}-->
+<!--              <button type="submit" class="btn btn-danger">Predict</button>-->
+<!--              </form>-->
+<!--              <div class="form-group">-->
+<!--                &lt;!&ndash; TODO : Year to accept only year date picker &ndash;&gt;-->
+<!--                <br><br><br>-->
+<!--                <label for="concave points_mean">Mean of the Concave Points</label>-->
+<!--                <input class="form-control" type="number" id="concave points_mean" name="concave_points_mean" required="required" placeholder="Mean of the Concave Points">-->
+<!--              </div>-->
+<!--              <div class="form-group">-->
+<!--                <label for="area_mean">Mean of the Area</label>-->
+<!--                <input class="form-control" type="number" step="any" id="area_mean" name="area_mean" required="required" placeholder="Mean of the Area">-->
+<!--              </div>-->
+<!--              <div class="form-group">-->
+<!--                <label for="radius_mean">Mean of the Radius</label>-->
+<!--                <input class="form-control" type="number" id="radius_mean" name="radius_mean" required="required" placeholder="Mean of the radius">-->
+<!--              </div>-->
+<!--              <div class="form-group">-->
+<!--                <label for="perimeter_mean">Mean of the Perimeters</label>-->
+<!--                <input class="form-control" type="number" id="perimeter_mean" name="perimeter_mean" required="required" placeholder="Mean of the Parameter">-->
+<!--              </div>-->
+<!--              <div class="form-group">-->
+<!--                <label for="concavity_mean">Mean of the Concavity</label>-->
+<!--                <input class="form-control" type="number" id="concavity_mean" name="concavity_mean" required="required" placeholder="Mean of the concavity">-->
+<!--              </div>-->
+<!--              <button type="submit" class="btn btn-danger">Predict</button>-->
+<!--            </form>-->
+<!--          </div>-->
+
+        </div>
+      </div>
+      <!--/.Mask-->
+{% endblock %}
+  </body>
+</html>
